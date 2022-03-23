@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,24 +6,29 @@ using System.Threading.Tasks;
 
 namespace Taxi
 {
-    class taxi
+    public class Taxi
     {
-        static void Main(string[] args)
+        public string DriverName { get; set; }
+        public bool OnDuty { get; set; }
+        public int NumPassenger { get; set; }
+
+        private string OnDutyyN()
         {
-            // membuat objek Taxi
-            Taxi taxi = new Taxi();
-
-            // pengsetan nilai properties
-            taxi.DriverName = "Jono";
-            taxi.OnDuty = true;
-            taxi.NumPassenger = 10;
-
-            // pemanggilan method
-            taxi.TaxiInfo();
-            taxi.PickUpPassenger();
-            taxi.DropOffPassenger();
-
-            Console.ReadKey();
+            return OnDuty ? "Yes" : "No";
+        }
+        public void Taxinfo()
+        {
+            Console.WriteLine("Driver Name : {0}", DriverName );
+            Console.WriteLine("On Duty : {0}", OnDutyyN());
+            Console.WriteLine("Number of Passenger : {0}", NumPassenger);
+        }
+        public void PickUpPassenger()
+        {
+            Console.WriteLine("{0} sedang menjemput penumpang", DriverName);
+        }
+        public void DropOffPassenger()
+        {
+            Console.WriteLine("{0} selesai mengantar penumpang", DriverName);
         }
     }
 }
